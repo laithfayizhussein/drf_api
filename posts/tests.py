@@ -6,9 +6,16 @@ from .models import Posts
 class PostssTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        testuser1 = get_user_model().objects.create_user(username='testuser1', password='9919')
+        testuser1 = get_user_model().objects.create_user(
+            username='testuser1', password='9919'
+        )
         testuser1.save()
-        test_post = Posts.objects.create(author=testuser1, title='hello', description='greeting' )
+        
+        test_post = Posts.objects.create(
+            author=testuser1,
+            title='hello',
+            description='greeting' 
+        )
         test_post.save()
 
     def test_blog_content(self):
